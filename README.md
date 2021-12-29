@@ -1,15 +1,15 @@
 # ML_in_Business_CP
-Machine Learning in Business. Course Project: Loan Repayment Prediction
+## Machine Learning in Business. Course Project: Loan Repayment Prediction
 
 Курсовой проект по курсу "Машинное обучение в бизнесе". 
 
-Стек: python, docker
+__Стек:__ python, docker
 
-ML: sklearn, pandas, numpy. API: flask. Данные: с kaggle - https://www.kaggle.com/itssuru/loan-data
+__ML:__ sklearn, pandas, numpy. API: flask. Данные: с kaggle - https://www.kaggle.com/itssuru/loan-data
 
-Задача: На основании имеющихся данных сервиса LendingClub.com требуется построить модель для прогнозирования невозврата заемщиком кредита в полном объеме.
+__Задача:__ На основании имеющихся данных сервиса LendingClub.com требуется построить модель для прогнозирования невозврата заемщиком кредита в полном объеме.
 
-Используемые признаки:
+__Используемые признаки:__
 
 - credit.policy: 1 if the customer meets the credit underwriting criteria of LendingClub.com, and 0 otherwise.
 - purpose: The purpose of the loan (takes values "creditcard", "debtconsolidation", "educational", "majorpurchase", "smallbusiness", and "all_other").
@@ -25,18 +25,24 @@ ML: sklearn, pandas, numpy. API: flask. Данные: с kaggle - https://www.ka
 - delinq.2yrs: The number of times the borrower had been 30+ days past due on a payment in the past 2 years.
 - pub.rec: The borrower's number of derogatory public records (bankruptcy filings, tax liens, or judgments).
 
-Преобразования признаков: OHE кодирование для категориальных признаков, StandardScaler для вещественных признаков
+__Преобразования признаков:__ OHE кодирование для категориальных признаков, StandardScaler для вещественных признаков
 
-Модель: градиентный бустинг
+__Модель:__ градиентный бустинг
 
-Клонируем репозиторий и создаем образ
-$ git clone https://github.com/egreenius/ML_in_Business_CP.git
-$ cd ML_in_Business_CP
-$ docker build -t ml_loan_repayment_prediction .
+__Инструкция по разворачиванию:__
 
-Запускаем контейнер
-Здесь Вам нужно проверить наличие каталога с обученной моделью на локальном компьютере (<your_local_full_path_to_pretrained_models>) и вставить полный путь к этому каталогу в следующей команде.
+Клонируем репозиторий и создаем образ (image):
 
-$ docker run -d -p 8180:8180  -v <your_local_full_path_to_pretrained_models> :/app/app/models ml_loan_repaiment_prediction
+    $ git clone https://github.com/egreenius/ML_in_Business_CP.git
+    $ cd ML_in_Business_CP
+    $ docker build -t ml_loan_repayment_prediction .
 
-Используем адрес localhost:8180 для обращения к API. Для работы можно использовать файл step3_mlinbusiness_cp.py либо в интерактивном режиме в jupiter ноутбуке, либо в терминале, используя команду $ python step3_mlinbusiness_cp
+Запускаем контейнер:
+
+(*здесь Вам нужно проверить наличие каталога с обученной моделью на локальном компьютере (<your_local_full_path_to_pretrained_models>) и вставить полный путь к этому каталогу в следующей команде.*)
+
+    $ docker run -d -p 8180:8180  -v <your_local_full_path_to_pretrained_models> :/app/app/models ml_loan_repaiment_prediction
+
+Используем адрес localhost:8180 для обращения к API. Для работы можно использовать файл step3_mlinbusiness_cp.py либо в интерактивном режиме в jupiter ноутбуке, либо в терминале, используя команду:
+
+    $ python step3_mlinbusiness_cp.py
